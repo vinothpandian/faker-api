@@ -7,6 +7,7 @@ router.get("/api/:count", (req, res)=>{
 
     let data = _.range(req.params.count).map((i)=>{
         return {
+            id: i,
             name: faker.name.findName(),
             mobile: faker.phone.phoneNumberFormat(),
             email: faker.internet.email()
