@@ -9,6 +9,7 @@ router.get("/api/:count", (req, res)=>{
         return {
             id: i,
             name: faker.name.findName(),
+            gender: ["Male","Female"][Math.round(Math.random())],
             mobile: faker.phone.phoneNumberFormat(),
             email: faker.internet.email()
         }
