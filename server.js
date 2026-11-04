@@ -1,9 +1,9 @@
 const express = require("express");
 const app = express();
-const bodyParser = require("body-parser");
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 app.all('*', function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -14,4 +14,8 @@ app.all('*', function(req, res, next) {
 
 app.use(require('./routes/index'));
 
-app.listen(3000, () => console.log('listening on port 3000'));
+if (require.main === module) {
+    app.listen(3000, () => console.log('listening on port 3000'));
+}
+
+module.exports = app;
